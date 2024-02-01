@@ -1,14 +1,13 @@
 package com.castle.drive.auth.service.impl;
 
-import cn.hutool.json.JSONUtil;
-import com.alibaba.excel.util.StringUtils;
 import com.castle.drive.auth.service.AppLoginRedisService;
 import com.castle.drive.auth.vo.AppLoginVo;
 import com.castle.drive.common.constant.RedisKey;
 import com.castle.drive.config.properties.LoginAppProperties;
 import com.castle.drive.framework.exception.LoginException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.redis.core.StringRedisTemplate;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -32,7 +31,7 @@ public class AppLoginRedisServiceImpl implements AppLoginRedisService {
     private LoginAppProperties loginAppProperties;
 
     @Resource
-    private StringRedisTemplate stringRedisTemplate;
+    private RedisTemplate<String, AppLoginVo> redisTemplate;
 
     private Integer tokenExpireDays;
 
@@ -58,7 +57,7 @@ public class AppLoginRedisServiceImpl implements AppLoginRedisService {
         }
         // 用户信息
         String loginTokenRedisKey = getLoginRedisKey(token);
-        stringRedisTemplate.opsForValue().set(loginTokenRedisKey, JSONUtil.toJsonStr(appLoginVo), tokenExpireDays, TOKEN_TIME_UNIT);
+        redisTemplate.opsForValue().set(loginTokenRedisKey, appLoginVo, tokenExpireDays, TOKEN_TIME_UNIT);
     }
 
     @Override
@@ -67,8 +66,7 @@ public class AppLoginRedisServiceImpl implements AppLoginRedisService {
             throw new LoginException("token不能为空");
         }
         String loginRedisKey = getLoginRedisKey(token);
-        String json = stringRedisTemplate.opsForValue().get(loginRedisKey);
-        return JSONUtil.toBean(json, AppLoginVo.class);
+        return redisTemplate.opsForValue().get(loginRedisKey);
     }
 
     @Override
@@ -77,7 +75,7 @@ public class AppLoginRedisServiceImpl implements AppLoginRedisService {
             throw new LoginException("token不能为空");
         }
         String loginRedisKey = getLoginRedisKey(token);
-        stringRedisTemplate.delete(loginRedisKey);
+        redisTemplate.delete(loginRedisKey);
     }
 
     @Override

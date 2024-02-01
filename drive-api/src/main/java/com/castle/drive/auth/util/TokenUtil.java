@@ -1,6 +1,5 @@
 package com.castle.drive.auth.util;
 
-import com.alibaba.excel.util.StringUtils;
 import com.castle.drive.auth.cache.TokenCache;
 import com.castle.drive.common.constant.LoginConstant;
 import com.castle.drive.common.enums.SystemType;
@@ -12,6 +11,7 @@ import com.castle.drive.util.UUIDUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.Cookie;

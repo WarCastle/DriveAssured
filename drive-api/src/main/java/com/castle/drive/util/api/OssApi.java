@@ -1,6 +1,5 @@
 package com.castle.drive.util.api;
 
-import com.alibaba.excel.util.StringUtils;
 import com.alibaba.fastjson2.JSON;
 import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSS;
@@ -13,6 +12,7 @@ import com.aliyun.oss.model.PutObjectResult;
 import com.castle.drive.config.properties.OssProperties;
 import com.castle.drive.framework.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
