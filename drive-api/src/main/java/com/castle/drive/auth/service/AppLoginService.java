@@ -4,11 +4,11 @@ import com.castle.drive.auth.vo.LoginVo;
 
 /**
  * @author YuLong
- * @Date 2024/2/1 10:15
- * @Classname LoginRedisService
- * @Description 登录Redis服务接口
+ * @Date 2024/2/1 15:15
+ * @Classname AppLoginServiceImpl
+ * @Description App登录服务接口
  */
-public interface LoginRedisService {
+public interface AppLoginService {
 
     /**
      * 获取登录用户token的redis key
@@ -43,7 +43,7 @@ public interface LoginRedisService {
     void refreshToken();
 
     /**
-     * 通过用户token删除当前用户之前的所有的redis登录信息
+     * 通过用户token删除当前用户之前的所有redis登录信息
      * @param token
      */
     void deleteLoginInfoByToken(String token);

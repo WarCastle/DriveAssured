@@ -6,6 +6,8 @@ import com.castle.drive.auth.vo.AppLoginVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
 /**
  * @author YuLong
  * @Date 2024/1/29 17:42
@@ -39,5 +41,71 @@ public class AppLoginUtil {
      */
     public static AppLoginVo getLoginVo() {
         return AppLoginCache.get();
+    }
+
+    /**
+     * 获取登录用户ID
+     *
+     * @return
+     */
+    public static Long getUserId() {
+        AppLoginVo appLoginVo = getLoginVo();
+        if (Objects.nonNull(appLoginVo)) {
+            return appLoginVo.getUserId();
+        }
+        return null;
+    }
+
+    /**
+     * 获取登录用户ID字符串
+     *
+     * @return
+     * @
+     */
+    public static String getUserIdString() {
+        Long userId = getUserId();
+        if (Objects.isNull(userId)) {
+            return null;
+        }
+        return userId.toString();
+    }
+
+    /**
+     * 获取登录用户名
+     *
+     * @return
+     */
+    public static String getUsername() {
+        AppLoginVo appLoginVo = getLoginVo();
+        if (Objects.nonNull(appLoginVo)) {
+            return appLoginVo.getUsername();
+        }
+        return null;
+    }
+
+    /**
+     * 获取用户角色ID
+     *
+     * @return
+     */
+    public static Long getUserRoleId() {
+        AppLoginVo appLoginVo = getLoginVo();
+        if (Objects.nonNull(appLoginVo)) {
+            return appLoginVo.getUserRoleId();
+        }
+        return null;
+    }
+
+    /**
+     * 获取用户角色编码
+     *
+     * @return
+     */
+    public static String getUserRoleCode() {
+        AppLoginVo appLoginVo = getLoginVo();
+        if (Objects.nonNull(appLoginVo)) {
+            return appLoginVo.getUserRoleCode();
+        }
+        return null;
     }
 }

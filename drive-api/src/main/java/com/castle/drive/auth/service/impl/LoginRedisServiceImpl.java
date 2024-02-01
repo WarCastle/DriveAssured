@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
  * @author YuLong
  * @Date 2024/2/1 10:22
  * @Classname LoginRedisServiceImpl
- * @Description 登录Redis服务实现类
+ * @Description 登录Redis服务接口实现类
  */
 @Slf4j
 @Service

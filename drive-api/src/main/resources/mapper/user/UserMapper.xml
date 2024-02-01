@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.castle.drive.user.mapper.UserMapper">
+
+    <select id="getUserById" resultType="com.castle.drive.user.vo.UserVo">
+        select *
+        from user
+        where id = #{id}
+    </select>
+
+    <select id="getUserPage" parameterType="com.castle.drive.user.query.UserQuery"
+            resultType="com.castle.drive.user.vo.UserVo">
+        select *
+        from user
+    </select>
+
+    <select id="getAppUserById" resultType="com.castle.drive.user.vo.AppUserVo">
+        select u.*, r.name userRoleName
+        from user u
+                 left join user_role r
+                            on u.user_role_id = r.id
+        where u.id = #{id}
+    </select>
+
+</mapper>

@@ -6,7 +6,7 @@ import com.castle.drive.auth.vo.AppLoginVo;
  * @author YuLong
  * @Date 2024/1/29 17:44
  * @Classname AppLoginRedisService
- * @Description App登录Redis服务
+ * @Description App登录Redis服务接口
  */
 public interface AppLoginRedisService {
 
