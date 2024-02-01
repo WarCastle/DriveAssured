@@ -27,7 +27,7 @@ public class RedisTemplateTest {
     private StringRedisTemplate stringRedisTemplate;
 
     @Resource
-    private RedisTemplate<String, User> redisTemplate;
+    private RedisTemplate<String, EntityDemo> redisTemplate;
 
 
     private static final TimeUnit TOKEN_TIME_UNIT = TimeUnit.DAYS;
@@ -53,21 +53,21 @@ public class RedisTemplateTest {
     void testSave2() {
         int tokenExpireDays = 1;
         String loginTokenRedisKey = "2";
-        User user = new User();
-        user.setName("晚起的鸟儿睡好觉");
-        redisTemplate.opsForValue().set(loginTokenRedisKey, user, tokenExpireDays, TOKEN_TIME_UNIT);
+        EntityDemo entityDemo = new EntityDemo();
+        entityDemo.setName("晚起的鸟儿睡好觉");
+        redisTemplate.opsForValue().set(loginTokenRedisKey, entityDemo, tokenExpireDays, TOKEN_TIME_UNIT);
     }
 
     @Test
     void testQuery2() {
         String loginRedisKey = "2";
-        User user = redisTemplate.opsForValue().get(loginRedisKey);
-        log.info("{}", user);
+        EntityDemo entityDemo = redisTemplate.opsForValue().get(loginRedisKey);
+        log.info("{}", entityDemo);
     }
 }
 
 @Data
-class User implements Serializable {
+class EntityDemo implements Serializable {
 
     private static final long serialVersionUID = 1;
 
