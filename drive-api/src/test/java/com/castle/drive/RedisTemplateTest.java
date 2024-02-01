@@ -27,7 +27,7 @@ public class RedisTemplateTest {
     private StringRedisTemplate stringRedisTemplate;
 
     @Resource
-    private RedisTemplate redisTemplate;
+    private RedisTemplate<String, User> redisTemplate;
 
 
     private static final TimeUnit TOKEN_TIME_UNIT = TimeUnit.DAYS;
@@ -61,7 +61,7 @@ public class RedisTemplateTest {
     @Test
     void testQuery2() {
         String loginRedisKey = "2";
-        User user = (User) redisTemplate.opsForValue().get(loginRedisKey);
+        User user = redisTemplate.opsForValue().get(loginRedisKey);
         log.info("{}", user);
     }
 }

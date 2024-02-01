@@ -170,7 +170,7 @@ redis:
   # 注意每个项目的前缀应保持唯一
   # 可以不指定前缀，此时跟redis默认操作一样
   # 如之前未指定前缀，后面指定了，则需要将之前的key清空，反之亦然
-  projectPrefix:
+  projectPrefix: _drive_
 
 # file上传配置
 file:
