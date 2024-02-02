@@ -42,7 +42,6 @@ public class LoginController {
      * @param request
      * @param response
      * @return
-     * @throws Exception
      */
     @PostMapping("/login")
     @Operation(summary = "管理后台登录")
@@ -57,7 +56,6 @@ public class LoginController {
      * 获取管理后台登录用户信息
      *
      * @return
-     * @throws Exception
      */
     @PostMapping("/getLoginUserInfo")
     @Operation(summary = "获取管理后台登录用户信息")
@@ -70,7 +68,6 @@ public class LoginController {
      * 管理后台退出
      *
      * @return
-     * @throws Exception
      */
     @PostMapping("/logout")
     @Operation(summary = "管理后台退出")

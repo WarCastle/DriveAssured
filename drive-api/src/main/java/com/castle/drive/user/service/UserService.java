@@ -23,7 +23,6 @@ public interface UserService extends IService<User> {
      *
      * @param openid
      * @return
-     * @throws Exception
      */
     User getUserByOpenid(String openid);
 
@@ -32,7 +31,6 @@ public interface UserService extends IService<User> {
      *
      * @param username
      * @return
-     * @throws Exception
      */
     User getUserByUsername(String username);
 
@@ -41,7 +39,6 @@ public interface UserService extends IService<User> {
      *
      * @param userDto
      * @return
-     * @throws Exception
      */
     boolean addUser(UserDto userDto);
 
@@ -50,7 +47,6 @@ public interface UserService extends IService<User> {
      *
      * @param userDto
      * @return
-     * @throws Exception
      */
     boolean updateUser(UserDto userDto);
 
@@ -59,7 +55,6 @@ public interface UserService extends IService<User> {
      *
      * @param id
      * @return
-     * @throws Exception
      */
     boolean deleteUser(Long id);
 
@@ -68,7 +63,6 @@ public interface UserService extends IService<User> {
      *
      * @param id
      * @return
-     * @throws Exception
      */
     UserVo getUserById(Long id);
 
@@ -77,7 +71,6 @@ public interface UserService extends IService<User> {
      *
      * @param query
      * @return
-     * @throws Exception
      */
     Paging<UserVo> getUserPage(UserQuery query);
 
@@ -85,7 +78,6 @@ public interface UserService extends IService<User> {
      * 获取App用户信息
      *
      * @return
-     * @throws Exception
      */
     AppUserVo getProfile();
 
@@ -94,7 +86,6 @@ public interface UserService extends IService<User> {
      *
      * @param dto
      * @return
-     * @throws Exception
      */
     boolean updateHead(AppUserHeadDto dto);
 
@@ -103,7 +94,6 @@ public interface UserService extends IService<User> {
      *
      * @param dto
      * @return
-     * @throws Exception
      */
     boolean updateNickname(AppUserNicknameDto dto);
 }

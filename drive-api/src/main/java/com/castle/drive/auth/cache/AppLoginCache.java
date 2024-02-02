@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
  * @Date 2024/1/29 18:03
  * @Classname AppLoginCache
  * @Description App登录缓存
+ *  在当前线程中缓存token
+ *  如果开启多线程需要获取
  */
 @Component
 public class AppLoginCache {

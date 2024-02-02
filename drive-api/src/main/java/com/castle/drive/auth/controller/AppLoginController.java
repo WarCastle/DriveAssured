@@ -44,7 +44,6 @@ public class AppLoginController {
      * @param appLoginDto
      * @param response
      * @return
-     * @throws Exception
      */
     @PostMapping("/login")
     @Operation(summary = "APP小程序登录")
@@ -61,7 +60,6 @@ public class AppLoginController {
      * @param loginAccountAppDto
      * @param response
      * @return
-     * @throws Exception
      */
     @PostMapping("/accountLogin")
     @Operation(summary = "APP账号密码登录")
@@ -76,7 +74,6 @@ public class AppLoginController {
      * 获取APP登录用户信息
      *
      * @return
-     * @throws Exception
      */
     @Login
     @PostMapping("/getLoginUserInfo")
@@ -90,7 +87,6 @@ public class AppLoginController {
      * APP退出
      *
      * @return
-     * @throws Exception
      */
     @Login
     @PostMapping("/logout")
