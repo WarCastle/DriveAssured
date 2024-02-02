@@ -1,6 +1,12 @@
 package com.castle.drive.auth.service;
 
-import com.castle.drive.auth.vo.LoginVo;
+import com.castle.drive.auth.dto.AppAccountLoginDto;
+import com.castle.drive.auth.dto.AppLoginDto;
+import com.castle.drive.auth.vo.AppLoginVo;
+import com.castle.drive.auth.vo.LoginTokenVo;
+import com.castle.drive.user.entity.User;
+
+import java.util.Date;
 
 /**
  * @author YuLong
@@ -11,40 +17,49 @@ import com.castle.drive.auth.vo.LoginVo;
 public interface AppLoginService {
 
     /**
-     * 获取登录用户token的redis key
-     * @param token
+     * APP小程序登录
+     *
+     * @param dto
      * @return
      */
-    String getLoginRedisKey(String token);
+    LoginTokenVo login(AppLoginDto dto);
 
     /**
-     * 设置登录用户信息到redis
-     * @param token
-     * @param loginVo
-     */
-    void setLoginVo(String token, LoginVo loginVo);
-
-    /**
-     * 获取redis中的登录用户信息
-     * @param token
+     * APP账号密码登录
+     *
+     * @param dto
      * @return
      */
-    LoginVo getLoginVo(String token);
+    LoginTokenVo accountLogin(AppAccountLoginDto dto);
 
     /**
-     * 删除redis中的登录用户信息
+     * APP登录
+     *
+     * @param user
+     * @return
+     */
+    LoginTokenVo login(User user);
+
+    /**
+     * 刷新登录信息
+     *
+     * @param user
      * @param token
+     * @param lastLoginTime
+     * @return
      */
-    void deleteLoginVo(String token);
+    AppLoginVo refreshLoginInfo(User user, String token, Date lastLoginTime);
 
     /**
-     * 刷新token
+     * 获取登录用户信息
+     *
+     * @return
      */
-    void refreshToken();
+    AppLoginVo getLoginUserInfo();
 
     /**
-     * 通过用户token删除当前用户之前的所有redis登录信息
-     * @param token
+     * 登出
      */
-    void deleteLoginInfoByToken(String token);
+    void logout();
+
 }
