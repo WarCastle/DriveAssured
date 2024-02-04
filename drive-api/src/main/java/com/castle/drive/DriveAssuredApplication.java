@@ -3,9 +3,7 @@ package com.castle.drive;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * @author YuLong
@@ -15,7 +13,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @EnableAsync
 @SpringBootApplication(scanBasePackages = "com.castle.drive")
-// @MapperScan("com.castle.drive.mapper")
+@MapperScan({"com.castle.drive.system.mapper", "com.castle.drive.user.mapper"})
 // @EnableScheduling
 public class DriveAssuredApplication {
 
