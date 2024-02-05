@@ -6,5 +6,5 @@ package com.castle.drive.common.constant;
  * @Classname SysDictConstant
  * @Description 系统字典常量类
  */
-public class SysDictConstant {
+public interface SysDictConstant {
 }
