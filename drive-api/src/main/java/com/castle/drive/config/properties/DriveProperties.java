@@ -11,7 +11,7 @@ import java.util.List;
  * @author YuLong
  * @Date 2024/2/4 16:36
  * @Classname DriveProperties
- * @Description 框架公共配置
+ * @Description 框架公共属性配置
  */
 @Data
 @Component

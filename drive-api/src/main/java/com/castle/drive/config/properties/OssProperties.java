@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @author YuLong
  * @Date 2024/1/31 17:17
  * @Classname OssProperties
- * @Description 阿里云OSS配置
+ * @Description 阿里云OSS属性配置
  */
 @Data
 @Component

@@ -13,7 +13,7 @@ import java.util.Objects;
  * @author YuLong
  * @Date 2024/2/1 11:31
  * @Classname LoginAdminProperties
- * @Description 登录Admin配置
+ * @Description 登录Admin属性配置
  */
 @Data
 @Component
