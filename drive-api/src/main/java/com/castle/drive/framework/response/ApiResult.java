@@ -40,7 +40,7 @@ public class ApiResult<T> implements Serializable {
     private boolean success;
 
     @Schema(description = "响应消息")
-    private String message;
+    private String msg;
 
     @Schema(description = "响应结果数据")
     private T data;
@@ -114,7 +114,7 @@ public class ApiResult<T> implements Serializable {
         return ApiResult.<T>builder()
                 .code(code)
                 .success(success)
-                .message(outMessage)
+                .msg(outMessage)
                 .data(data)
                 .time(new Date())
                 .traceId(traceId)
