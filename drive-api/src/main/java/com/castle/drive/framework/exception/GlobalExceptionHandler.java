@@ -32,7 +32,7 @@ public class GlobalExceptionHandler {
      * @param exception
      * @return
      */
-    public static <T> ApiResult<T> handler(Throwable exception) {
+    public static <T> ApiResult<T> handle(Throwable exception) {
         if (exception instanceof LoginException) {
             return ApiResult.fail(ApiCode.TOKEN_EXCEPTION, exception.getMessage());
         } else if (exception instanceof NotAuthException) {
@@ -65,8 +65,8 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = Exception.class)
     @ResponseStatus(HttpStatus.OK)
-    public ApiResult<String> exceptionHandler(Exception exception) {
+    public ApiResult<String> exceptionHandle(Exception exception) {
         log.error("异常exception：{}", exception.getMessage());
-        return handler(exception);
+        return handle(exception);
     }
 }
